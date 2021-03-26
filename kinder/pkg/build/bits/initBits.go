@@ -280,7 +280,7 @@ func configureKubelet(c *BuildContext) error {
 
 	// ensure we don't fail if swap is enabled on the host
 	if err := c.RunInContainer("/bin/sh", "-c",
-		`echo "KUBELET_EXTRA_ARGS=--fail-swap-on=false" >> /etc/default/kubelet`,
+		`echo "FailSwapOn: false" >> /var/lib/kubelet/config.yaml`,
 	); err != nil {
 		log.Errorf("failed to set kubelet fail-swap-on! %v", err)
 		return err
