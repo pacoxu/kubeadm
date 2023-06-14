@@ -6,7 +6,7 @@ jobs:
     permissions:
       issues: write
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: check for the /support command
         id: command
@@ -20,7 +20,7 @@ jobs:
           permission-level: admin
       - name: comment with support text
         if: steps.command.outputs.command-name
-        uses: pacoxu/actions-comment-on-issue@1.0.3
+        uses: ben-z/actions-comment-on-issue@1.0.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
