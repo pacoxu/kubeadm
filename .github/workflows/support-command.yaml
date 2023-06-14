@@ -8,6 +8,8 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - name: install test dependencies
+        run: sudo apt-get install -y libseccomp-dev
       - name: check for the /support command
         id: command
         uses: xt0rted/slash-command-action@v1
