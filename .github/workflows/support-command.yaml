@@ -8,8 +8,6 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - name: install test dependencies
-        run: sudo apt-get install -y libseccomp-dev
       - name: check for the /support command
         id: command
         uses: xt0rted/slash-command-action@v1
@@ -22,7 +20,7 @@ jobs:
           permission-level: admin
       - name: comment with support text
         if: steps.command.outputs.command-name
-        uses: ben-z/actions-comment-on-issue@1.0.2
+        uses: ben-z/actions-comment-on-issue@master
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
